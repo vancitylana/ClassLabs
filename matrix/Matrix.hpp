@@ -2,15 +2,6 @@
 #include <iostream>
 
 template <class T>
-void swap(T& a, T& b)
-{
-    T t;
-    t=a;
-    a=b;
-    b=t;
-}
-
-template <class T>
 class Vector
 {
 public:
@@ -270,6 +261,26 @@ public:
     T* operator[](int idx)
     {
         return data[idx];
+    }
+
+    int get_n()
+    {
+        return n;
+    }
+
+    int get_m()
+    {
+        return m;
+    }
+
+    int count_num(T val)
+    {
+        int res=0;
+        for(int i = 0;i<n;++i)
+            for(int j=0;j<m;++j)
+                if(data[i][j]==val)
+                    ++res;
+        return res;
     }
 
     template <class B> friend std::istream &operator>>(std::istream &in, Matrix<B> &M);
